@@ -130,7 +130,7 @@ class PriorityQueue(Base):
         #     result = self._decode_request(results[0]['_id'])
         #     count = self.server[self.collection].delete_many({'score': 0})
         #     return result
-        result = self.server[self.collection].find_one_and_delete(sort={'score': 1})
+        result = self.server[self.collection].find_one_and_delete({}, sort={'score': 1})
         if result:
             return self._decode_request(result['_id'])
 
